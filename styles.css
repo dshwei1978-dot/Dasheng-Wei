@@ -5,92 +5,105 @@
   --muted:#9fb0cc;
   --accent:#5eead4;
   --max-width:1100px;
-  --radius:10px;
+  --radius:18px;
   --gap:24px;
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:linear-gradient(180deg,#081023 0%, var(--bg) 100%);
-  color:var(--text);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-.container{
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:48px 20px;
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:var(--gap);
-}
-.site-header{
-  border-bottom:1px solid rgba(255,255,255,0.03);
-  background:rgba(6,10,18,0.4);
-  backdrop-filter: blur(6px);
-}
-.brand .logo{
-  font-weight:700;
-  color:var(--text);
-  text-decoration:none;
-  font-size:1.1rem;
-}
-.tagline{color:var(--muted); font-size:0.85rem; margin:4px 0 0}
-.nav a{
-  color:var(--muted);
-  text-decoration:none;
-  margin-left:18px;
-  font-weight:500;
-}
-.hero{
-  padding:80px 0;
-}
-.hero-inner{display:flex; flex-direction:column; gap:18px}
-.hero h1{font-size:2.2rem; margin:0; letter-spacing:-0.02em}
-.lead{color:var(--muted); max-width:70ch}
-.cta-row{margin-top:8px}
-.btn{
-  display:inline-block;
-  padding:10px 16px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:600;
-  color:inherit;
-  border:1px solid transparent;
-}
-.btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa); color:#022; border:none}
-.btn.ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--text); margin-left:10px}
 
-.about, .projects, .contact{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-  margin:30px 0;
-  padding:28px;
-  border-radius:var(--radius);
-  border:1px solid rgba(255,255,255,0.02);
-}
-.grid{
-  display:grid;
-  gap:18px;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  margin-top:12px;
-}
-.card{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  padding:18px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,0.02);
-}
-.card h3{margin:0 0 8px}
-.link{color:var(--accent); text-decoration:none}
+* { box-sizing: border-box; }
 
-.site-footer{padding:18px 0; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02)}
-@media (max-width:720px){
-  .header-inner{flex-direction:column; align-items:flex-start}
-  .nav{display:flex; gap:10px; margin-top:8px}
-  .hero h1{font-size:1.6rem}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #081023 0%, var(--bg) 100%);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.paper-page {
+  padding: 40px 0;
+}
+
+.paper-panel {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: var(--radius);
+  padding: 32px 28px 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.paper-meta {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid transparent;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), #60a5fa);
+  color: #022;
+  border: none;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.paper-embed {
+  width: 100%;
+  min-height: 900px;
+  margin-top: 26px;
+  border: none;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .paper-panel {
+    padding: 22px 18px 18px;
+  }
+
+  .paper-embed {
+    min-height: 700px;
+  }
 }
