@@ -1,26 +1,33 @@
-:root{
-  --bg:#0f1724;
-  --panel:#0b1220;
-  --text:#e6eef8;
-  --muted:#9fb0cc;
-  --accent:#5eead4;
-  --max-width:1100px;
-  --radius:18px;
-  --gap:24px;
-  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+:root {
+  --bg: #0f1724;
+  --panel: #111827;
+  --card: rgba(255, 255, 255, 0.03);
+  --text: #edf2ff;
+  --muted: #b0bfd9;
+  --accent: #7dd3fc;
+  --accent-strong: #38bdf8;
+  --border: rgba(255, 255, 255, 0.08);
+  --max-width: 980px;
+  --radius: 18px;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(180deg, #081023 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, #08111d 0%, #0f1724 100%);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+img { max-width: 100%; }
+
+a { color: inherit; }
 
 .container {
   max-width: var(--max-width);
@@ -28,19 +35,57 @@ body {
   padding: 0 20px;
 }
 
-.paper-page {
-  padding: 40px 0;
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: rgba(8, 17, 29, 0.7);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.paper-panel {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.04);
-  border-radius: var(--radius);
-  padding: 32px 28px 24px;
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.brand {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: 1.15rem;
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--text);
+}
+
+.hero {
+  padding: 96px 0 48px;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .eyebrow {
-  margin: 0 0 8px;
+  margin: 0;
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -50,60 +95,90 @@ body {
 
 h1 {
   margin: 0;
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
 }
 
-.paper-meta {
-  margin: 12px 0 0;
+.lead {
+  max-width: 720px;
+  margin: 0;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
 }
 
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.section {
+  padding: 48px 0;
+}
+
+.section h2 {
+  margin: 0 0 18px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.04em;
+}
+
+.section p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.paper-list {
+  display: grid;
+  gap: 18px;
   margin-top: 20px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 8px;
+.paper-item {
+  display: block;
+  padding: 22px 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   text-decoration: none;
-  font-weight: 600;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.paper-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(125, 211, 252, 0.4);
+}
+
+.paper-title {
+  display: block;
   color: var(--text);
-  border: 1px solid transparent;
+  font-weight: 700;
+  font-size: 1.12rem;
+  line-height: 1.4;
 }
 
-.btn.primary {
-  background: linear-gradient(90deg, var(--accent), #60a5fa);
-  color: #022;
-  border: none;
+.paper-authors {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.96rem;
 }
 
-.btn.ghost {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-.paper-embed {
-  width: 100%;
-  min-height: 900px;
-  margin-top: 26px;
-  border: none;
-  border-radius: 12px;
-  background: #ffffff;
+.site-footer {
+  padding: 24px 0 48px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 720px) {
-  .paper-panel {
-    padding: 22px 18px 18px;
+  .header-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 0;
+    gap: 8px;
   }
 
-  .paper-embed {
-    min-height: 700px;
+  .nav {
+    gap: 18px;
+  }
+
+  .hero {
+    padding-top: 72px;
   }
 }
