@@ -131,33 +131,29 @@ h1 {
 }
 
 .paper-item {
-  display: block;
-  padding: 22px 20px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 6px;
+  padding: 0;
+  background: transparent;
+  border: none;
   text-decoration: none;
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  white-space: nowrap;
 }
 
-.paper-item:hover {
-  transform: translateY(-1px);
-  border-color: rgba(125, 211, 252, 0.4);
+.paper-author {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .paper-title {
-  display: block;
   color: var(--text);
-  font-weight: 700;
-  font-size: 1.12rem;
-  line-height: 1.4;
-}
-
-.paper-authors {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 0.96rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .site-footer {
@@ -180,5 +176,11 @@ h1 {
 
   .hero {
     padding-top: 72px;
+  }
+
+  .paper-item {
+    flex-wrap: wrap;
+    white-space: normal;
+    row-gap: 2px;
   }
 }
